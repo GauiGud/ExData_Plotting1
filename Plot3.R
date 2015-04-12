@@ -16,11 +16,8 @@ datetime <- paste(data2007$Date, data2007$Time)
 datetime <- strptime(datetime, format = "%d/%m/%Y %H:%M:%S")
 names(datetime) <- c("DateTime")
 
-# Change the LocalTime temporarely to English to get "Thu", "Fri" and "Sat"
-Sys.setlocale("LC_TIME", "English")
 dayofweek <- weekdays(datetime, abbreviate = TRUE)
 names(dayofweek) <- c("DayOfWeek")
-#Sys.setlocale("LC_TIME","Icelandic_Iceland.1252")
 
 # Add the dayofweek to the subset
 data2007 <- cbind( datetime, dayofweek, data2007 )
